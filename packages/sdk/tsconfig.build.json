@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    // No source maps: the published package ships dist only (decision of
+    // 2026-09-04), so maps would point at files that are not in the tarball.
+    // A map to nowhere is worse than no map — the debugger fails obscurely
+    // instead of just showing compiled output.
+    "declarationMap": false,
+    "sourceMap": false,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.test.ts"]
+}

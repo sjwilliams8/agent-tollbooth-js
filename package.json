@@ -1,0 +1,25 @@
+{
+  "name": "agent-tollbooth-js",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Client packages for the Agent Tollbooth compliance suite: the agent-tollbooth SDK and the agent-tollbooth-mcp MCP server.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm --filter agent-tollbooth build && pnpm --filter agent-tollbooth-mcp build",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "check": "pnpm build && pnpm typecheck && pnpm lint && pnpm test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.10.0",
+    "eslint": "^10.6.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.62.1",
+    "vitest": "^4.1.9"
+  }
+}

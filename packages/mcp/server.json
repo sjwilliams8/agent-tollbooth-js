@@ -1,0 +1,71 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.sjwilliams8/compliance-suite",
+  "description": "OFAC sanctions screening and FDIC bank verification. $0.01 per call in USDC, no API key.",
+  "repository": {
+    "url": "https://github.com/sjwilliams8/agent-tollbooth-js",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "agent-tollbooth-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "TOLLBOOTH_PRIVATE_KEY",
+          "description": "Private key of a Base wallet funded with USDC. This is how calls are paid for; each call costs $0.01. Required unless you set the CDP_* variables instead.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "CDP_API_KEY_ID",
+          "description": "Coinbase CDP API key ID. Set CDP_API_KEY_ID, CDP_API_KEY_SECRET and CDP_WALLET_SECRET together to pay from a CDP server wallet instead of a raw private key, leaving TOLLBOOTH_PRIVATE_KEY blank.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        },
+        {
+          "name": "CDP_API_KEY_SECRET",
+          "description": "Coinbase CDP API key secret. Needed only when paying from a CDP server wallet.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "CDP_WALLET_SECRET",
+          "description": "Coinbase CDP wallet secret. Needed only when paying from a CDP server wallet.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "TOLLBOOTH_NETWORK",
+          "description": "Which network to pay on: \"base\" (mainnet, real USDC) or \"base-sepolia\" (testnet, faucet USDC, same data). Defaults to base.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        },
+        {
+          "name": "CDP_ACCOUNT_NAME",
+          "description": "Which named Coinbase CDP account to pay from, when using a CDP server wallet. If your funds sit in a named account and this is unset, payments are signed by the default account and rejected as unfunded.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        },
+        {
+          "name": "TOLLBOOTH_MAX_PRICE",
+          "description": "Refuse to pay more than this for a single call, e.g. \"$0.02\". Defaults to $0.05. Guards against a mispriced or spoofed payment challenge.",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

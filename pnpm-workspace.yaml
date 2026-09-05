@@ -1,0 +1,16 @@
+packages:
+  - "packages/*"
+
+# Security overrides, mirrored from the private monorepo. Each target is
+# inside its parent's declared semver range, so this only forces the patch
+# forward. Re-check on upstream bumps.
+#   fast-uri        - GHSA host confusion + SSRF. Via ajv <- @x402/extensions.
+#   postcss         - path traversal. Via vite <- vitest. Dev only.
+#   brace-expansion - DoS. Via minimatch <- eslint. Dev only.
+#   axios           - proxy inheritance + others, via @coinbase/cdp-sdk, which
+#                     pins it exactly; forced forward deliberately.
+overrides:
+  axios: "^1.19.0"
+  fast-uri: "^3.1.6"
+  postcss: "^8.5.25"
+  brace-expansion: "^5.0.9"

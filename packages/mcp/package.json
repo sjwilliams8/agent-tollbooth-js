@@ -1,0 +1,48 @@
+{
+  "name": "agent-tollbooth-mcp",
+  "version": "0.1.0",
+  "mcpName": "io.github.sjwilliams8/compliance-suite",
+  "description": "MCP server for OFAC sanctions screening and FDIC bank verification. Your agent pays $0.01 per call in USDC over x402 — no account, no API key.",
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "ofac",
+    "sanctions",
+    "sanctions-screening",
+    "compliance",
+    "fdic",
+    "aml",
+    "kyb",
+    "x402"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "agent-tollbooth-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "server.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.0.0",
+    "agent-tollbooth": "workspace:*",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

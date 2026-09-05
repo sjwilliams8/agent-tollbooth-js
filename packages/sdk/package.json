@@ -1,0 +1,58 @@
+{
+  "name": "agent-tollbooth",
+  "version": "0.1.0",
+  "description": "Screen names against OFAC sanctions lists and verify FDIC-insured banks from an AI agent. Pay per call in USDC over x402 — no account, no API key, no subscription.",
+  "keywords": [
+    "ofac",
+    "sanctions",
+    "sanctions-screening",
+    "compliance",
+    "kyb",
+    "fdic",
+    "aml",
+    "x402",
+    "ai-agent",
+    "mcp"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@x402/evm": "2.24.0",
+    "@x402/fetch": "2.24.0",
+    "viem": "^2.55.0"
+  },
+  "peerDependencies": {
+    "@coinbase/cdp-sdk": ">=1.50.0"
+  },
+  "peerDependenciesMeta": {
+    "@coinbase/cdp-sdk": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}
