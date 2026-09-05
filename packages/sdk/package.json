@@ -15,6 +15,15 @@
     "mcp"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjwilliams8/agent-tollbooth-js.git",
+    "directory": "packages/sdk"
+  },
+  "homepage": "https://github.com/sjwilliams8/agent-tollbooth-js/tree/main/packages/sdk#readme",
+  "bugs": {
+    "url": "https://github.com/sjwilliams8/agent-tollbooth-js/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

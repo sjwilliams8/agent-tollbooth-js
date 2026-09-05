@@ -16,6 +16,15 @@
     "x402"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjwilliams8/agent-tollbooth-js.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://github.com/sjwilliams8/agent-tollbooth-js/tree/main/packages/mcp#readme",
+  "bugs": {
+    "url": "https://github.com/sjwilliams8/agent-tollbooth-js/issues"
+  },
   "type": "module",
   "bin": {
     "agent-tollbooth-mcp": "./dist/index.js"
